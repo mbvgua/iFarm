@@ -1,13 +1,17 @@
 ### Soil moisture sensor code
 
-I used a resisitive soil moisture sensor. It comes with 4 pins:
+I used a resisitive soil moisture sensor. That is depictd as below: 
+![Resisitive Soil Moisture Sensor](1.irrigation_system/images/capacitive.png)
 
-+ <mark>VCC</mark> this will be connected to the voltage pin, either 3V or 5V
-+ <mark>GND</mark> this is connected to the ground pin
-+ <mark>A0</mark> this will be the read pin. Arduino board will take input from this and display it on the serial monitor
-+ <mark></mark>
+It has two ends. The input and the ouput end. The input end has two pins that connect to the two resisitive probes on the sensor, registering the amount of resistence between them. The output end has 4 pins:
 
-code to run the sensor is as below:
++ **VCC** this will be connected to the voltage pin, either 3V or 5V
++ **GND** this is connected to the ground pin
++ **DO**
++ **A0** this will be the read pin. Arduino board will take input from this and display it on the serial monitor
+
+
+Code to run the sensor is as below:
 
 ```C++
 int readPin = A0;
@@ -16,7 +20,6 @@ int readVal;
 float actualVal;
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(readPin, INPUT);
   Serial.begin(9600);
 
@@ -38,7 +41,7 @@ void loop() {
 }
 ```
 
-The measured soil moisture is relative, ranging from 0 to 1023, and we need to do calibration to determine a threshold between wet and dry. While calibrating the sensor above, i found that when the sensor is completely dry its reads `1023`, which translates to `0%`. When completely immersed in water it reads an average of `448`, which is ` 100% `. This is used to build logic for my irrigation pump.
+The measured soil moisture is relative, ranging from 0 to 1023, and we need to do calibration to determine a threshold between wet and dry. While calibrating the sensor above, i found that when the sensor is completely dry its reads `1023`, which translates to `0%`. When completely immersed in water it reads (based on an average of 3) `448`, which is ` 100% `. This is used to build logic for my irrigation pump, to turn it on below a ceratin threshold. I used **ayoo%** which is the best soil moisture content for maximum kale growth.
 
 ```C++
 int readPin = A0;
@@ -48,7 +51,6 @@ float actualVal;
 int threshHold ;
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(readPin, INPUT);
   Serial.begin(9600);
 
@@ -68,3 +70,4 @@ void loop() {
 }
 }
 ```
+

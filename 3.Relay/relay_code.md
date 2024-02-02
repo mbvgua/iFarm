@@ -1,29 +1,29 @@
 ### Relay Code
 
-A relay is a programmable switch that can be controlled by any microcontroller, or in this case an arduion Uno. Its used to programatically cotroll the on/off switches in devices that use high voltage/ current.
+A relay is a programmable switch that can be controlled by any microcontroller, or in this case an arduion Uno. Its used to programatically controll the on/off switches in devices that use high voltage/ current.
 
-> They act as a bridge between the <mark>MCU</mark> and high voltage devices.
+> They act as a bridge between the **MCU** and high voltage devices.
 
 Pins in the input group are connected to the arduino mcu via 3 pins:
 
-+ DC- pin is connected to the GND pin
-+ DC+ needs to be connected to VCC
-+ IN pin receives the control signal from the arduino board
++ **DC-** pin is connected to the GND pin
++ **DC+** needs to be connected to VCC
++ **IN** pin receives the control signal from the arduino board
 
 Pins in the output group are conneceted to the high voltage device using 3 pins:
 
-+ COM pin is the common pin. used in both normally open and normally closed mode
-+ NO pin is the normally open pin. used in normally open
-+ NC pin is the normally closed pin. used in normally closed
++ **COM** pin is the common pin. used in both normally open and normally closed mode
++ **NO** pin is the normally open pin. used in normally open
++ **NC** pin is the normally closed pin. used in normally closed
   Practcally we rarely use all the pins, but instead only two of them:
-  
-  `In normally open mode, we use COM and NO pin`
-  
-  `In normally closed mode, we use COM and NC pin`
-In Normally open mode, the circuit will become connected when the relay is activated, and the circuit is disconnected when the relay is inactive.*(circuit is closed unless otherwise stated)*
-In Normally Closed mode, the circuit is disconnected when the relay is activated, and it is connected when the relay is inactive.*(circuit is closed unless otherwise stated)*
 
-to controll a device using a relay, we simply:
+In `Normally Open Mode`, we use the COM *(Common pin)* and NO *(Normally open)* pin. 
+In `Normally closed mode`, we use COM  *(Common pin)* and NC *(Normally closed)* pin.
+
+>In *Normally open mode*, the circuit will become connected when the relay is activated, and the circuit is disconnected when the relay is inactive.*(circuit is closed unless otherwise stated)*.
+In *Normally Closed mode*, the circuit is disconnected when the relay is activated, and it is connected when the relay is inactive.*(circuit is closed unless otherwise stated)*
+
+to controll a device using a relay, we simply use it similarly to an LED:
 
 1. connect an arduino pin to the IN pin of the relay
 2. control the relay by programming the pin to the LOW or HIGH
@@ -49,7 +49,15 @@ void loop() {
 }
 ```
 
-for a 2-channel relay:
+---------
+
+**ADDITIONAL INFO NOT RELATED TO THE PROJECT**
+
+Relays can be able to controll more than one device. This is be having multiple **IN** pins to receive diffrent signals from the MCU. As such we can have a;
+
++ 2 Channel Relay - has two different **IN** pins and is able to controll two diffferent devices.
++ 4 Channel Relay - has 4 diffrent **IN** pins, and is able to controll 4 different dvices.
+Code for running a 2 Channel Relay is as below:-
 
 ```C++
 #define PIN_RELAY_1  2 // the Arduino pin, which connects to the IN1 pin of relay module
@@ -119,28 +127,3 @@ void loop() {
 ```
 
 ------------
-
-### Code to read soil-moisture sensor readings
-
-```C++
-int readPin = A0;
-float readVal;
-float actualVal;
-int waitTime = 1000;
-
-// function to execute only once
-void setup(){
-    // set pin to get data from
-    pinMode(readPin, INPUT);
-    // Frequency at which it registers on serial monitor
-    Serial.begin(9600);
-}
-
-// function to execute repeatedly
-void loop(){
-    readVal = analogueRead(readPin);
-    actualVal = readVal * (5./1023.)
-    Serial.println(actualVal);
-    delay(waitTime);
-}
-```

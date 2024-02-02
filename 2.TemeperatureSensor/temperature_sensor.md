@@ -3,15 +3,16 @@
 I used a DHT11 sensor, it is an industry favourite due to its ability to measure both temperature and humidity. The DHT11 is a basic, ultra-low-cost digital temperature and humidity sensor. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air and sends data through a 1-wire protocol. In this instance however, we will only use it for the tmperature measurement.
 
 It has 3 pins:
-+ `Signal`- will be used to transmit readings from the sensor to the board
-+ `VCC`- power pin, in which you supply the 5V
-+ `GND`- ground pin 
-![The DHT11 sensor](images/dht11_sensor.png)
++ **Signal**- will be used to transmit readings from the sensor to the board
++ **VCC**- power pin, in which you supply the 5V
++ **GND**- ground pin 
 
-> DHT11 can measure temperature from 0-50⁰C with a 2% accuracy and relative humidity from 20-80% with an accuracy of 5%.
+![The DHT11 sensor](1.irrigation_system/images/dht11_sensor.png)
+
+> DHT11 can measure temperature from 0-50⁰C within a 2% accuracy and relative humidity from 20-80% within an accuracy of 5%.
 
 
-![DHT11 sensor and the arduino mcu](/images/dht11_sensor_and_arduino.png)
+![DHT11 sensor and the arduino mcu](1.irrigation_system/images/dht11_sensor_and_arduino.png)
 the code for the making the sensor work is:
 ```C++
 
@@ -29,7 +30,7 @@ DHT11 dht11(readPin);
 void setup()
 {
     // Initialize serial communication to allow debugging and data readout.
-    // Using a baud rate of 9600 bps.
+    // Using a baud rate of 9600 bps that allows for minial data loss.
     Serial.begin(9600);
 }
 
