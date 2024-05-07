@@ -27,7 +27,7 @@ firebase_admin.initialize_app(cred, {
 # linear regression code
 dataset = 'website/static/nyeri_kales_dataset2.csv'
 path_str = uuid.uuid4().hex
-image = 'static/' + path_str + '.svg'
+image = 'static/images/' + path_str + '.svg'
 image_path = 'website/' + image
 
 model = load('website/static/lr_model.joblib')
@@ -111,6 +111,6 @@ def model():
         database.session.add(new_report)
         database.session.commit()
 
-        return render_template ('model.html', user=current_user,image=image, prediction=prediction,maxTemp=maxTemp,minTemp=minTemp)
+        return render_template ('model_page.html', user=current_user,image=image, prediction=prediction,maxTemp=maxTemp,minTemp=minTemp)
 
-    return render_template('model.html', user=current_user,image=image)#, prediction=prediction, maxTemp=maxTemp,minTemp=minTemp)
+    return render_template('model_page.html', user=current_user,image=image)#, prediction=prediction, maxTemp=maxTemp,minTemp=minTemp)

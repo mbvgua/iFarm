@@ -5,10 +5,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% block title %} iFarm {% endblock %}</title>
+	<title>iFarm: {% block title %} iFarm {% endblock %}</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" href="static/style.css">
-  <link rel="stylesheet" type="text/css" href="static/bootstrap.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
 </head>
 <body>
 
@@ -42,13 +42,13 @@
 	</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="{{url_for('static',
+<script type="text/javascript" src="{{url_for('static/js',
 filename='bootstrap.bundle.min.js')}}"></script>
-<script type="text/javascript" src="{{url_for('static', filename='bootstrap.bundle.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static/js', filename='bootstrap.bundle.js')}}"></script>
 <!-- essential script to allow firebase js SDK functinality -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
 
-<script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static/js', filename='index.js')}}"></script>
 
 </body>
 </html>
