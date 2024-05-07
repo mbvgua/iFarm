@@ -1,0 +1,25 @@
+.
+├── iFarm
+│   ├── app.py
+│   └── website
+│       ├── auth.py
+│       ├── __init__.py
+│       ├── models.py
+│       ├── static
+│       │   ├── css
+│       │   │   └── style.css
+│       │   ├── images
+│       │   └── js
+│       │       └── script.js
+│       ├── templates
+│       │   ├── base.html
+│       │   ├── forms.html
+│       │   ├── index.html
+│       │   ├── login.html
+│       │   ├── model_page.html
+│       │   └── signup.html
+│       ├── tests.py
+│       └── views.py
+└── tree.txt
+
+8 directories, 15 files

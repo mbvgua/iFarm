@@ -1,0 +1,54 @@
+{% from 'bootstrap5/nav.html' import render_nav_item %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %} iFarm {% endblock %}</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" type="text/css" href="static/bootstrap.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	    <div class="navbar-nav mr-auto">
+			{% if user.is_authenticated %}
+	        	{{ render_nav_item('views.index', 'Home') }}
+	        	{{ render_nav_item('views.model', 'Model') }}
+	        	{{ render_nav_item('auth.logout', 'Logout') }}
+			{% else %}
+				{{ render_nav_item('auth.signup', 'Signup') }}
+				{{ render_nav_item('auth.login', 'Login') }}
+			{% endif %}
+
+	    </div>
+   </nav>
+
+	{% with messages=get_flashed_messages(with_categories=true) %}
+		{% for category, message in messages %}
+   			<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+      			{{ message }}
+      		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    		</div>
+	   {% endfor %}
+	{% endwith %}
+
+	<div class="container">
+		{% block body %}
+
+		{% endblock %}
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',
+filename='bootstrap.bundle.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='bootstrap.bundle.js')}}"></script>
+<!-- essential script to allow firebase js SDK functinality -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+
+</body>
+</html>

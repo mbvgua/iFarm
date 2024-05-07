@@ -1,0 +1,157 @@
+ :root{
+    --bg-color:hsl(49 37% 94%);
+    --typewriterSpeed: 3s;
+    --typewriterCharacters: 19;
+}
+/*--my styling of the page--*/
+.container{
+  padding:15px;
+}
+h1{
+    display: inline-block;
+    text-align: center;
+}
+.card-content{
+    font-size: 60px;
+    font-weight: 110%;
+    font-family: "Open Sans", sans-serif;
+    margin: 0px auto;
+    text-align: center;
+    text-shadow: 2px 10px rgba(0,0,0,0.1);
+}
+.relay-box{
+    justify-content: space-around;
+/*    max-width: 70%;*/
+    padding: 10px;
+    display: flex;
+/*    background: var(--bg-color);*/
+    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+}
+button {
+    padding-top: 400px;
+}
+/*.report{
+    font-family: "Courier New", monospace;
+    font-size: 120%;
+    text-align: center;
+    font-weight: medium;
+    font-style: normal;
+    margin: 1rem 0 1rem 0;
+    font-stretch: extra-expanded;
+    padding: 20px;
+    align-items: center;
+    background-color: white;
+    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+}*/
+
+
+/*styling of toggle button*/
+.toggle-container{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:0.2s;
+}
+.button{
+    background-color: #d2d2d2;
+    width:200px;
+    height:100px;
+    border-radius: 200px;
+    cursor: pointer;
+    position:relative;
+}
+.button::before{
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 90px;
+    height:90px;
+    border-radius: 200px;
+    margin:5px;
+    transition:0.2s;
+}
+input:checked + .button{
+    background-color: cadetblue;
+}
+input:checked + .button::before{
+    transform:translateX(100px);
+}
+input{
+    display:None;
+}
+
+/*----random nerds styling ----*/
+.card-grid {
+/*    max-width: 800px;*/
+    margin: 0 0 1rem 0;
+    padding: 10px;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card {
+    padding: 10px;
+    align-items: center;
+    background: var(--bg-color);
+    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+}
+.card-title {
+    font-size: 1.9rem;
+}
+.state {
+    color:#1282A2;
+    font-size: 1.2rem;
+}
+/* typewriter effect */
+.report{
+/*    font-family: "Courier New", monospace;*/
+    font-size: 120%;
+    text-align: center;
+    font-weight: medium;
+    font-style: normal;
+    margin: 1rem 0 1rem 0;
+    font-stretch: extra-expanded;
+    padding: 20px;
+    align-items: center;
+    background: var(--bg-color);
+    box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+#report{
+    font-size: 120%;
+    position: relative;
+    font-family: "Source Code Pro", monospace;
+    position: flex;
+/*    width:wrap-content;*/
+}
+
+/*thermometer boxes display*/
+.fas{
+/*    background-color: blue;*/
+    font-size: 3rem;
+}
+
+.fieldset{
+    margin: 0px auto;
+    max-width: 600px;
+}
+.fieldset h1{
+/*    margin-right: 50%;*/
+    margin-left: 35%;
+}
+.fieldset button{
+    margin-left: 35%;
+}
+.fieldset label{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+

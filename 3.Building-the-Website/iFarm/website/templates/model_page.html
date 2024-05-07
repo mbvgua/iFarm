@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} iFarm {% endblock %}
+
+{% block body %}
+<form method="post">
+	<center>
+		<h1> Linear Regression Model </h1>
+		<img src="{{ image }}" height="600">
+		<!-- {{ graph }} -->
+
+
+
+		<!-- <div>maxTemp:{{ maxTemp }}| minTemp:{{ minTemp }} | GDD:{{ prediction }}</div> -->
+		<button type="submit" class="btn btn-primary" id="btn1On" > Get Prediction </button>
+
+		{% if request.method == 'POST' %}
+
+			<div class="report" name="report"><p id="report">
+				Hello {{ current_user.username.capitalize() }}. Today the system recorded maximum tmperatures of {{ maxTemp }} and minimum temperatures of {{ minTemp }}. Based on our prediction model, it seems you plant experienced a total of {{prediction}} Growing Degree Days, to an accuracy of 99.99%.
+			</p></div>
+		{% endif %}
+	</center>
+</form>
+
+{% endblock %}

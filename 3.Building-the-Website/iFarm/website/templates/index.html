@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} iFarm {% endblock %}
+
+{% block body %}
+<body>
+  <!-- <center> -->
+  <!-- <h1><strong> iFarm </strong></h1> -->
+{% if current_user.is_authenticated %}
+  <h1><strong> Hello, {{ current_user.username.capitalize() }}  </strong></h1>
+<!-- {% if current_user.is_anonymous %}
+  <h1><strong> Hello, stranger </strong></h1>
+{% endif %} -->
+
+  <div class="card-grid">
+  <div class="card">
+    <p class="card-title"><i class="fas fa-thermometer-three-quarters" style="color:#e01b24;"></i>Maximum Temperature</p>
+    <p class="card-content">
+      <span id="maxTemp"></span>
+      <sup class="units">&deg;C</sup>
+    </p>
+  </div>
+
+  <div class="card">
+    <p class="card-title"><i class="fas fa-thermometer-quarter" style="color:#1a5fb4;"></i>Minimum Temperature</p>
+    <p class="card-content">
+      <span id="minTemp"></span>
+      <sup class="units">&deg;C</sup>
+    </p>
+  </div>
+
+  <div class="card">
+    <p class="card-title"><i class="fas fa-tint" style="color:#00add6;"></i> Soil Moisture Content </p>
+    <p class="card-content">
+      <span id="soilMoisture"></span>
+      <sup class="units">%</sup>
+    </p>
+  </div>
+  </div>
+
+    <div class="relay-box">
+    <p class="card-title"> <i class="fas fa-lightbulb"></i> Relay Pin </p>
+      <input type="checkbox" id="relayControll">
+      <label for="relayControll" class="button"></label>
+    <p class="state">State:<span id="relayState"></span></p>
+   </div>
+
+<!-- </center> -->
+</body>
+{% endif %}
+{% endblock %}
