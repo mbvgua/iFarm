@@ -1,0 +1,16 @@
+#ignore all the sqlite databases generated
+*.db.sqlite3
+
+#ignore all image and pdf file uploads in website
+website/**/*.pyc
+website/**/*.svg
+website/**/*.jpg
+website/**/*.png
+website/**/*.pdf
+
+# ignore the json file secrets
+*.json
+
+#ignore all jupyter notebook checkpoints
+*.ipynb
+*.ipynb_checkpoints
