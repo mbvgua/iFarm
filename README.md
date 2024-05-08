@@ -14,6 +14,7 @@ Here i list down all the code that I employ to run my system. it has been catego
 1. Code to read soil moisture sensor readings [here](1.Building-the-Thing/1.soilMoistureSensor/soil_moisture_sensor.md)
 1. Code for the relay module [here](1.Building-the-Thing/3.Relay/relay_code.md)
 1. Finalized Arduino Code, with the Firebase database logic include [here](1.Building-the-Thing/6.finalCode)
+1. Understanding how to use the webapp [here](3.Building-the-Website/README.md)
 
 
 ------------
