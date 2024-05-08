@@ -1,6 +1,6 @@
 ### Relay Code
 
-A relay is a programmable switch that can be controlled by any microcontroller, or in this case an arduion Uno. Its used to programatically controll the on/off switches in devices that use high voltage/ current.
+A relay is a programmable switch that can be controlled by any microcontroller, or in this case an arduion Uno. Its used to programatically controll the on/off switches in devices that use high voltage/ current which might cause burning out of the microcontroller if used direclt on them.
 
 > They act as a bridge between the **MCU** and high voltage devices.
 
@@ -15,13 +15,13 @@ Pins in the output group are conneceted to the high voltage device using 3 pins:
 + **COM** pin is the common pin. used in both normally open and normally closed mode
 + **NO** pin is the normally open pin. used in normally open
 + **NC** pin is the normally closed pin. used in normally closed
-  Practcally we rarely use all the pins, but instead only two of them:
+  Practically we rarely use all the pins, but instead only two of them:
 
-In `Normally Open Mode`, we use the COM *(Common pin)* and NO *(Normally open)* pin. 
-In `Normally closed mode`, we use COM  *(Common pin)* and NC *(Normally closed)* pin.
+In `Normally Open Mode`, we use the COM *(Common pin)* and NO *(Normally open)* pin. In `Normally open mode`, the circuit will become connected when the relay is activated, and the circuit is disconnected when the relay is inactive i.e *(circuit is closed unless otherwise stated)*.
 
->In *Normally open mode*, the circuit will become connected when the relay is activated, and the circuit is disconnected when the relay is inactive.*(circuit is closed unless otherwise stated)*.
-In *Normally Closed mode*, the circuit is disconnected when the relay is activated, and it is connected when the relay is inactive.*(circuit is closed unless otherwise stated)*
+In `Normally closed mode`, we use COM  *(Common pin)* and NC *(Normally closed)* pin. In `Normally Closed mode`, the circuit is disconnected when the relay is activated, and it is connected when the relay is inactive i.e *(circuit is open unless otherwise stated)*
+
+a ![2-channel-relay](relay.png)
 
 to controll a device using a relay, we simply use it similarly to an LED:
 
@@ -51,12 +51,13 @@ void loop() {
 
 ---------
 
-**ADDITIONAL INFO NOT RELATED TO THE PROJECT**
+**ADDITIONALY**
 
 Relays can be able to controll more than one device. This is be having multiple **IN** pins to receive diffrent signals from the MCU. As such we can have a;
 
-+ 2 Channel Relay - has two different **IN** pins and is able to controll two diffferent devices.
-+ 4 Channel Relay - has 4 diffrent **IN** pins, and is able to controll 4 different dvices.
++ 2 Channel Relay - has 2 different **IN** pins and is able to controll two diffferent devices.
++ 4 Channel Relay - has 4 diffrent **IN** pins, and is able to controll four different dvices.
+
 Code for running a 2 Channel Relay is as below:-
 
 ```C++

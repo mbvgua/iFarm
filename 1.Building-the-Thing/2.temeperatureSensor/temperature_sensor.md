@@ -4,15 +4,13 @@ I used a DHT11 sensor, it is an industry favourite due to its ability to measure
 
 It has 3 pins:
 + **Signal**- will be used to transmit readings from the sensor to the board
-+ **VCC**- power pin, in which you supply the 5V
++ **VCC**- power pin, in which you supply the 5V or 3.3V power supply
 + **GND**- ground pin 
 
-![The DHT11 sensor](1.irrigation_system/images/dht11_sensor.png)
+![The DHT11 sensor](dht11_sensor.png)
 
 > DHT11 can measure temperature from 0-50⁰C within a 2% accuracy and relative humidity from 20-80% within an accuracy of 5%.
 
-
-![DHT11 sensor and the arduino mcu](1.irrigation_system/images/dht11_sensor_and_arduino.png)
 the code for the making the sensor work is:
 ```C++
 
